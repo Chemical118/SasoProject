@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<!--<meta http-equiv="refresh" content="1">-->
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='loc.css')}}">
+<script>var data = {{klist|tojson}}</script>
+<script src="{{url_for('static', filename='addloc.js')}}"></script>
+<div style='position:relative' id='map'>
+    <img src="{{url_for('static', filename='map.jpg')}}">
+</div>
+<script>addDot(data)</script>
