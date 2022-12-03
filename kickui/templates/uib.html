@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta http-equiv="refresh" content="1">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='loc.css')}}">
+<link href="{{url_for('static', filename='sigma.css')}}"rel="stylesheet">
+<script>var data = {{klist|tojson}}</script>
+<script src="{{url_for('static', filename='addloc.js')}}"></script>
+
+<script>
+    function submitlocation() {
+        document.getElementById('locform').x.value=350;
+        document.getElementById('locform').y.value=150;
+        document.getElementById('locform').submit();
+    }
+</script>
+
+<div style='position:relative;float:left' id='map'>
+    <img src="{{url_for('static', filename='map.jpg')}}" style="width:70%; height:70%;">
+</div>
+<script>addDot(data)</script>
+
+<form action="/uiresult" method="post" id="locform">
+    <input type="hidden" name="x">
+    <input type="hidden" name="y">
+    <input type='button' value='내 주변 킥보드 찾기' onclick=submitlocation()>
+</form>
