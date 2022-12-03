@@ -4,29 +4,23 @@
 <script>var data = {{klist|tojson}}</script>
 <script src="{{url_for('static', filename='addloc.js')}}"></script>
 <div style='position:relative' id='map'>
-    <img src="{{url_for('static', filename='map.jpg')}}">
+    <img src="{{url_for('static', filename='map.jpg')}}" style="width:70%; height:70%;">
 </div>
 <script>addDot(data)</script>
-<table>
+<table class="table" align="l">
     <thead>
         <tr>
-            <th>예약</th>
-            <th>id</th>
-            <th>x</th>
-            <th>y</th>
-            <th>battery</th>
-            <th>free</th>
+            <th>ID</th>
+            <th>X좌표</th>
+            <th>Y좌표</th>
+            <th>배터리</th>
+            <th>사용 여부</th>
         </tr>
     </thead>
 
     {% for v in klist %}
     <tbody>
         <tr>
-            <th scope="row">
-                <div>
-                    <input type="button" value="{{ loop.index0 + 1 }}">
-                </div>
-            </th>
         <td>{{v[0]}}</td>
         <td>{{v[1]}}</td>
         <td>{{v[2]}}</td>
