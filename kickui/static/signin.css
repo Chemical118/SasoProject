@@ -37,3 +37,7 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.bold{
+  font-family: 'Black Han Sans', sans-serif;
+  font-weight: 400;
+}

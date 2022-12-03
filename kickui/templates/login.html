@@ -14,7 +14,9 @@
 
     <!-- Bootstrap core CSS -->
 <link href="{{url_for('static', filename='bootstrap.min.css')}}" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -29,6 +31,7 @@
           font-size: 3.5rem;
         }
       }
+      @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
     </style>
 
     
@@ -40,7 +43,7 @@
     <main class="form-signin">
       <form action="/loginresult" method="post">
         <img class="mb-4" src="{{url_for('static', filename='tiger.jpg')}}" alt="" width="201" height="176">
-        <h1 class="h3 mb-3 fw-normal">고려대 킥보드 대여 사업</h1>
+        <h1 class="bold">고려대 킥보드 대여</h1>
 
         <div class="form-floating">
           <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
