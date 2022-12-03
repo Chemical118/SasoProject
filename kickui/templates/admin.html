@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <meta http-equiv="refresh" content="1">
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='loc.css')}}">
+<link href="{{url_for('static', filename='sigma.css')}}"rel="stylesheet">
 <script>var data = {{klist|tojson}}</script>
 <script src="{{url_for('static', filename='addloc.js')}}"></script>
-<div style='position:relative' id='map'>
+<h2>현 킥보드 위치</h2>
+<div style='position:relative; float:left' id='map'>
     <img src="{{url_for('static', filename='map.jpg')}}" style="width:70%; height:70%;">
 </div>
 <script>addDot(data)</script>
-<table class="table" align="l">
+<div role="region" aria-label="data table" tabindex="0" class="primary" style="float:left">
+<table class="table">
     <thead>
         <tr>
             <th>ID</th>
@@ -30,3 +33,4 @@
     </tbody>
     {% endfor %}
 </table>
+</div>

@@ -4,6 +4,7 @@
 <link href="{{url_for('static', filename='sigma.css')}}"rel="stylesheet">
 
 <script>
+    var nowkickid = 0
     function submitkick(nowkick, id, form_id) {
         document.getElementById(form_id).x.value=350;
         document.getElementById(form_id).y.value=150;
@@ -22,11 +23,13 @@
 
 <script>var data = {{klist|tojson}}</script>
 <script src="{{url_for('static', filename='addloc.js')}}"></script>
+<h2>현 킥보드 위치</h2>
 <div style='position:relative; float:left' id='map'>
     <img src="{{url_for('static', filename='map.jpg')}}" style="width:70%; height:70%;">
 </div>
 <script>addDot(data)</script>
 
+<body>
 <div role="region" aria-label="data table" tabindex="0" class="primary" style="float:left">
     <form action="/chkick" method="post" id="kickform">
         <input type="hidden" name="x">
@@ -47,7 +50,7 @@
             <tr>
                 <th scope="row">
                     <div>
-                        <input type="button" value="{{ loop.index0 + 1 }}" onclick="submitkick('T', {{v[0]}}, "kickform")">
+                        <input type="button" value="{{ loop.index0 + 1 }}" onclick="submitkick('T', {{v[0]}}, 'kickform')">
                     </div>
                 </th>
             <td>{{v[0]}}</td>
@@ -65,6 +68,6 @@
         <input type="hidden" name="y">
         <input type="hidden" name="kickid">
         <input type="hidden" name="type">
-        <button type="submit"  onclick="submitkick('F', get_nowkick(), "kickform2")">반환</button>
+        <button class= "custom-btn btn-4" type="submit"  onclick="submitkick('F', get_nowkick(), 'kickform2')">반환</button>
     </form>
 </div>
