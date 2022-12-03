@@ -6,36 +6,33 @@
 <div style='position:relative' id='map'>
     <img src="{{url_for('static', filename='map.jpg')}}">
 </div>
-
-<!--<table class="table table-bordered table-sm table-hover">-->
-<!--    &lt;!&ndash; Table head &ndash;&gt;-->
-<!--    <thead>-->
-<!--        <tr>-->
-<!--            <th>Number</th>-->
-<!--            <th>Name</th>-->
-<!--            <th>Type</th>-->
-<!--            <th>Sequence</th>-->
-<!--        </tr>-->
-<!--    </thead>-->
-<!--    &lt;!&ndash; Table head &ndash;&gt;-->
-
-
-<!--    &lt;!&ndash; Table body &ndash;&gt;-->
-<!--    {% for i, v in enumerate%}-->
-<!--    <tbody>-->
-<!--        <tr>-->
-<!--            <th scope="row">-->
-<!--                &lt;!&ndash; Default unchecked &ndash;&gt;-->
-<!--                <div class="custom-control custom-checkbox">-->
-<!--                    <input type="button" onclick="submit_form_with_partno('circuitform', 'circuitinput', '{{p[0]}}')" value="{{p[0]}}">-->
-<!--                </div>-->
-<!--            </th>-->
-<!--            <td>{{p[1]}}</td>-->
-<!--            <td>{{p[2]}}</td>-->
-<!--            <td>{{p[3]}}</td>-->
-<!--        </tr>-->
-<!--    </tbody>-->
-<!--    {% endfor %}-->
-<!--    &lt;!&ndash; Table body &ndash;&gt;-->
-<!--</table>-->
 <script>addDot(data)</script>
+<table>
+    <thead>
+        <tr>
+            <th>예약</th>
+            <th>id</th>
+            <th>x</th>
+            <th>y</th>
+            <th>battery</th>
+            <th>free</th>
+        </tr>
+    </thead>
+
+    {% for v in klist %}
+    <tbody>
+        <tr>
+            <th scope="row">
+                <div>
+                    <input type="button" value="{{ loop.index0 + 1 }}">
+                </div>
+            </th>
+        <td>{{v[0]}}</td>
+        <td>{{v[1]}}</td>
+        <td>{{v[2]}}</td>
+        <td>{{v[3]}}</td>
+        <td>{{v[4]}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>

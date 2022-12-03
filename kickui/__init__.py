@@ -22,8 +22,9 @@ def save_kickboard(klist):
 
 
 def add_kickboard(*arg):
+    last_id = get_kickboard()[-1][0]
     with open(app.config['DB'], 'a') as f:
-        f.write(' '.join(arg))
+        f.write(' '.join([last_id] + list(arg)))
 
 
 def sorted_get_kickboard(x, y):
