@@ -5,7 +5,7 @@ app = Flask(__name__,
             static_folder='static',
             template_folder='templates')
 
-app.config.update(DB='db/db.txt')
+app.config.update(DB='C:\\Users\\sm031\\Documents\\SasoProject\\SasoProject\\db\\db.txt')
 
 
 # kickboard : id, x, y, bat, T/F

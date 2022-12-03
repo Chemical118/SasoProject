@@ -4,20 +4,19 @@
 <link href="{{url_for('static', filename='sigma.css')}}"rel="stylesheet">
 
 <script>
-    function submitkick(nowkick, id) {
-        document.getElementById('kickform').x.value=350;
-        document.getElementById('kickform').y.value=150;
-        document.getElementById('kickform').kickid.value=id;
-        document.getElementById('kickform').type.value=nowkick;
+    function submitkick(nowkick, id, form_id) {
+        document.getElementById(form_id).x.value=350;
+        document.getElementById(form_id).y.value=150;
+        document.getElementById(form_id).kickid.value=id;
+        document.getElementById(form_id).type.value=nowkick;
 
         nowkickid = id
-        document.getElementById('kickform').submit();
+        document.getElementById(form_id).submit();
     }
 
     function get_nowkick() {
         const url = new URL(window.location.href)
-        const nowkick = url.searchParams.get('nowkick') * 1
-        return nowkick
+        return url.searchParams.get('nowkick')
     }
 </script>
 
@@ -48,7 +47,7 @@
             <tr>
                 <th scope="row">
                     <div>
-                        <input type="button" value="{{ loop.index0 + 1 }}" onclick="submitkick('T', {{v[0]}})">
+                        <input type="button" value="{{ loop.index0 + 1 }}" onclick="submitkick('T', {{v[0]}}, "kickform")">
                     </div>
                 </th>
             <td>{{v[0]}}</td>
@@ -57,5 +56,15 @@
         </tbody>
         {% endfor %}
         </table>
+        <!-- <button type="submit"  onclick="submitkick('F', get_nowkick())">반환</button> -->
+    </form>
+</div>
+<div style = "float:right">
+    <form action="/chkick" method="post" id="kickform2">
+        <input type="hidden" name="x">
+        <input type="hidden" name="y">
+        <input type="hidden" name="kickid">
+        <input type="hidden" name="type">
+        <button type="submit"  onclick="submitkick('F', get_nowkick(), "kickform2")">반환</button>
     </form>
 </div>
