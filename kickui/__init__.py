@@ -26,11 +26,11 @@ def add_kickboard(*arg):
         f.write(' '.join(arg))
 
 
-def sort_kickboard(x, y):
+def sorted_get_kickboard(x, y):
     with open(app.config['DB']) as f:
         klist = f.read().splitlines()
-    return sorted(filter(lambda t: (t[3] == "T" and int(t[2]) > 30), [i.split() for i in klist]),
-                  key=lambda t: (int(t[0] - x)) ** 2 + (int(t[1] - y)) ** 2)
+    return sorted(filter(lambda t: (t[3] == "T" and int(t[2]) > 25), [i.split() for i in klist]),
+                  key=lambda t: (int(t[0]) - x) ** 2 + (int(t[1]) - y) ** 2)
 
 
 @app.route("/admin")
