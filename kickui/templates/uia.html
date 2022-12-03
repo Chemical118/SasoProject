@@ -2,6 +2,25 @@
 <meta http-equiv="refresh" content="1">
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='loc.css')}}">
 <link href="{{url_for('static', filename='sigma.css')}}"rel="stylesheet">
+
+<script>
+    function submitkick(nowkick, id) {
+        document.getElementById('kickform').x.value=350;
+        document.getElementById('kickform').y.value=150;
+        document.getElementById('kickform').kickid.value=id;
+        document.getElementById('kickform').type.value=nowkick;
+
+        nowkickid = id
+        document.getElementById('kickform').submit();
+    }
+
+    function get_nowkick() {
+        const url = new URL(window.location.href)
+        const nowkick = url.searchParams.get('nowkick') * 1
+        return nowkick
+    }
+</script>
+
 <script>var data = {{klist|tojson}}</script>
 <script src="{{url_for('static', filename='addloc.js')}}"></script>
 <div style='position:relative; float:left' id='map'>
@@ -10,13 +29,17 @@
 <script>addDot(data)</script>
 
 <div role="region" aria-label="data table" tabindex="0" class="primary" style="float:left">
-    <table>
+    <form action="/chkick" method="post" id="kickform">
+        <input type="hidden" name="x">
+        <input type="hidden" name="y">
+        <input type="hidden" name="kickid">
+        <input type="hidden" name="type">
+        <table>
         <thead>
             <tr>
                 <th class="pin">예약</th>
-                <th scope="col">id</th>
-                <th scope="col">battery</th>
-                <th scope="col">free</th>
+                <th scope="col">ID</th>
+                <th scope="col">배터리</th>
             </tr>
         </thead>
 
@@ -25,14 +48,14 @@
             <tr>
                 <th scope="row">
                     <div>
-                        <input type="button" value="{{ loop.index0 + 1 }}">
+                        <input type="button" value="{{ loop.index0 + 1 }}" onclick="submitkick('T', {{v[0]}})">
                     </div>
                 </th>
             <td>{{v[0]}}</td>
             <td>{{v[3]}}</td>
-            <td>{{v[4]}}</td>
             </tr>
         </tbody>
         {% endfor %}
-    </table>
+        </table>
+    </form>
 </div>

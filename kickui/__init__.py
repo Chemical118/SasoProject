@@ -18,7 +18,7 @@ def get_kickboard():
 def save_kickboard(klist):
     with open(app.config['DB'], 'w') as f:
         for k in klist:
-            f.write(' '.join(k))
+            f.write(' '.join(k) + '\n')
 
 
 def add_kickboard(*arg):
@@ -54,6 +54,12 @@ def loginresult():
 @app.route('/uiresult', methods=['POST'])
 def uiresult():
     return redirect(url_for('ui', x=request.form['x'], y=request.form['y']))
+
+
+@app.route('/chkick', methods=['POST'])
+def chkick():
+    use_kickboard(request.form['kickid'], end=False if request.form['type'] == 'T' else True)
+    return redirect(url_for('ui', x=request.form['x'], y=request.form['y'], nowkick=request.form['kickid']))
 
 
 @app.route("/ui")
