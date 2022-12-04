@@ -12,3 +12,10 @@
     position: absolute;
     z-index: 10;
 }
+
+.users {
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    z-index: 11;
+}

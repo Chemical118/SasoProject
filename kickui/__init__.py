@@ -5,8 +5,10 @@ app = Flask(__name__,
             static_folder='static',
             template_folder='templates')
 
-app.config.update(DB='C:\\Users\\sm031\\Documents\\SasoProject\\SasoProject\\db\\db.txt')
+app.config.update(DB='db\\db.txt')
 
+# user location
+xloc, yloc = 350, 150
 
 # kickboard : id, x, y, bat, T/F
 def get_kickboard():
@@ -67,9 +69,9 @@ def ui():
     x = request.args.get('x')
     y = request.args.get('y')
     if x is None and y is None:
-        return render_template("uib.html", klist=get_kickboard())
+        return render_template("uib.html", klist=get_kickboard(), x=xloc, y=yloc)
     else:
-        return render_template("uia.html", klist=sorted_get_kickboard(x, y)[:5])
+        return render_template("uia.html", klist=sorted_get_kickboard(x, y)[:5], x=xloc, y=yloc)
 
 
 @app.route("/admin")

@@ -9,14 +9,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
     </style>
 <script>
-    var nowkickid = 0
     function submitkick(nowkick, id, form_id) {
-        document.getElementById(form_id).x.value=350;
-        document.getElementById(form_id).y.value=150;
+        document.getElementById(form_id).x.value={{x}};
+        document.getElementById(form_id).y.value={{y}};
         document.getElementById(form_id).kickid.value=id;
         document.getElementById(form_id).type.value=nowkick;
-
-        nowkickid = id
         document.getElementById(form_id).submit();
     }
 
@@ -30,10 +27,18 @@
 <script src="{{url_for('static', filename='addloc.js')}}"></script>
 <h2 class="bold">현 킥보드 위치</h2>
 <div style='position:relative; float:left' id='map'>
-    <img src="{{url_for('static', filename='map.jpg')}}" style="width:70%; height:70%;">
+    <img src="{{url_for('static', filename='map.jpg')}}">
 </div>
 <script>addDot(data)</script>
-
+<script>
+    const url = new URL(window.location.href)
+    var div = document.createElement('div')
+    div.className = 'users'
+    div.style.left = url.searchParams.get('x') + 'px'
+    div.style.top = url.searchParams.get('y') + 'px'
+    div.style.backgroundColor = 'black'
+    document.getElementById('map').appendChild(div)
+</script>
 <div role="region" aria-label="data table" tabindex="0" class="primary" style="float:left">
     <form action="/chkick" method="post" id="kickform">
         <input type="hidden" name="x">

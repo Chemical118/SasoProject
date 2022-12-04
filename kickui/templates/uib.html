@@ -13,15 +13,15 @@
 
 <script>
     function submitlocation() {
-        document.getElementById('locform').x.value=350;
-        document.getElementById('locform').y.value=150;
+        document.getElementById('locform').x.value={{x}};
+        document.getElementById('locform').y.value={{y}};
         document.getElementById('locform').submit();
     }
 </script>
 
 <h2 class="bold">현 킥보드 위치</h2>
 <div style='position:relative;float:left' id='map'>
-    <img src="{{url_for('static', filename='map.jpg')}}" style="width:70%; height:70%;">
+    <img src="{{url_for('static', filename='map.jpg')}}">
 </div>
 <script>addDot(data)</script>
 

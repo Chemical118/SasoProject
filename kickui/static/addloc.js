@@ -5,8 +5,8 @@ function addDot(data) {
         if (data[i][4] === 'T') div.className = 'dots'
         else div.className = 'boxs'
 
-        div.style.left = Number(data[i][1]) * 0.7+ 'px'
-        div.style.top = Number(data[i][2]) * 0.7 + 'px'
+        div.style.left = data[i][1] + 'px'
+        div.style.top = data[i][2] + 'px'
 
         // color setting
         if (data[i][3] > 75)  div.style.border = '5px solid #61D801'
