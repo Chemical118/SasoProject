@@ -2,7 +2,12 @@
 <meta http-equiv="refresh" content="1">
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='loc.css')}}">
 <link href="{{url_for('static', filename='sigma.css')}}"rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    </style>
 <script>
     var nowkickid = 0
     function submitkick(nowkick, id, form_id) {
@@ -23,13 +28,12 @@
 
 <script>var data = {{klist|tojson}}</script>
 <script src="{{url_for('static', filename='addloc.js')}}"></script>
-<h2>현 킥보드 위치</h2>
+<h2 class="bold">현 킥보드 위치</h2>
 <div style='position:relative; float:left' id='map'>
     <img src="{{url_for('static', filename='map.jpg')}}" style="width:70%; height:70%;">
 </div>
 <script>addDot(data)</script>
 
-<body>
 <div role="region" aria-label="data table" tabindex="0" class="primary" style="float:left">
     <form action="/chkick" method="post" id="kickform">
         <input type="hidden" name="x">
@@ -59,10 +63,9 @@
         </tbody>
         {% endfor %}
         </table>
-        <!-- <button type="submit"  onclick="submitkick('F', get_nowkick())">반환</button> -->
     </form>
 </div>
-<div style = "float:right">
+<div style = "float:left">
     <form action="/chkick" method="post" id="kickform2">
         <input type="hidden" name="x">
         <input type="hidden" name="y">

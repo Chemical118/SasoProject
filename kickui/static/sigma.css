@@ -182,3 +182,7 @@ body {
     margin: 4px 2px;
     cursor: pointer;
   }
+  .bold{
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: 400;
+  }
