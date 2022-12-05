@@ -186,3 +186,4 @@ body {
     font-family: 'Black Han Sans', sans-serif;
     font-weight: 400;
   }
+  #idx-top {width: 100%; height: 120px; background:url('./banner_sample.png');}

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<meta http-equiv="refresh" content="1">
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='loc.css')}}">
 <link href="{{url_for('static', filename='sigma.css')}}"rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +23,9 @@
 </script>
 
 <script>var data = {{klist|tojson}}</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{url_for('static', filename='addloc.js')}}"></script>
+<div id="idx-top"></div>
 <h2 class="bold">현 킥보드 위치</h2>
 <div style='position:relative; float:left' id='map'>
     <img src="{{url_for('static', filename='map.jpg')}}">
@@ -59,7 +60,7 @@
             <tr>
                 <th scope="row">
                     <div>
-                        <input type="button" value="{{ loop.index0 + 1 }}" onclick="submitkick('T', {{v[0]}}, 'kickform')">
+                        <button type="button" class="btn btn-secondary" onclick="swal('헬멧, 아직도 안 쓰셨나요?', '이젠 선택이 아니라 필수입니다!', 'warning').then(() => {submitkick('T', {{v[0]}}, 'kickform')})">{{ loop.index0 + 1 }}</button>
                     </div>
                 </th>
             <td>{{v[0]}}</td>

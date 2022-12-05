@@ -5,7 +5,7 @@ app = Flask(__name__,
             static_folder='static',
             template_folder='templates')
 
-app.config.update(DB='db\\db.txt')
+app.config.update(DB='C:\\Users\\sm031\\Documents\\SasoProject\\SasoProject\\db\\db.txt')
 
 # user location
 xloc, yloc = 350, 150
@@ -62,7 +62,6 @@ def uiresult():
 def chkick():
     use_kickboard(request.form['kickid'], end=False if request.form['type'] == 'T' else True)
     return redirect(url_for('ui', x=request.form['x'], y=request.form['y'], nowkick=request.form['kickid']))
-
 
 @app.route("/ui")
 def ui():
