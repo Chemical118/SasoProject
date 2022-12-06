@@ -8,7 +8,7 @@ app = Flask(__name__,
 app.config.update(DB='C:\\Users\\sm031\\Documents\\SasoProject\\SasoProject\\db\\db.txt')
 
 # user location
-xloc, yloc = 350, 150
+xloc, yloc = 361, 343
 
 # kickboard : id, x, y, bat, T/F
 def get_kickboard():
